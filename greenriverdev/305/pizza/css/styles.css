@@ -1,0 +1,22 @@
+h1 {
+    color: darkgreen;
+}
+
+.display-4 {
+    font-size: 4.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+body {
+    margin: 0 150px;
+    background-color: darkred;
+}
+
+#main {
+    background-color: white;
+}
+
+fieldset .border {
+    border-color: darkgreen;
+}
