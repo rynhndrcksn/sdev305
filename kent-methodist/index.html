@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+				integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="styles/styles.css">
+	<title>Kent Outreach Program</title>
+	<!--Favicon-->
+	<link rel="icon" href="images/kent-favicon.png">
+</head>
+<body>
+<!-- navbar -->
+<nav class="navbar navbar-dark bg-dark">
+	<a class="navbar-brand">Kent Methodist Outreach Program</a>
+	<ul class="nav justify-content-end">
+		<li class="nav-item">
+			<a class="nav-link text-uppercase text-white" href="#about">About us</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link text-uppercase text-white" href="#services">Services</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link text-uppercase text-white" href="#contact">Contact us</a>
+		</li>
+	</ul>
+</nav>
+
+<!-- Contact Intake Form-->
+<div class="container">
+	<h1 class="text-danger">Notice</h1>
+	<p>Appointments are made first come first served. Online form is only accessible during business hours.
+		If you cannot access form it is either outside of business hours or we have filled our appointments
+		for the week. Please try again next Monday beginning at 1pm.</p>
+
+	<!-- Dana's About Us Section -->
+	<fieldset class="about-us form-group border p-2">
+		<legend>About Us</legend>
+		<p class="about-info">The Outreach provides low-income Kent residents and the homeless with food, water,
+			clothing, utility
+			shut-off assistance, drivers licenses and IDs, and referral information. We also provide school supplies
+			and
+			household furnishings, when they are available. Those seeking help must live within the Kent school
+			district, be disabled, have children living with them, or are senior citizens. We always help the
+			homeless.</p>
+		<p class="about-info">The Outreach began almost 30 years ago when St. James saw the need arise. During these
+			desperate times our office is a lifeline for those in need. It has evolved into a place that gives hope
+			to those in need.</p>
+	</fieldset>
+
+		<!-- Ryan R's Services Section -->
+		<!-- Horizontal Divider -->
+		<div class="row" id="services-anchor">
+			<div class="col"><hr></div>
+			<div class="col-auto "><h5>How We Can Help</h5></div>
+			<div class="col"><hr></div>
+		</div>
+
+		<fieldset class="form-group border p-2">
+		<!--  Services Cards/Icons  -->
+		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 justify-content-center">
+			<div class="col">
+				<img src="images/house-24px.svg" class="service-icon card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="text-center card-title text-center">Rent or Utilities</h5>
+					<p class="card-text"><small class="text-muted">Can only be requested once per
+						calendar year.  The name of the requester must appear on the bill.  Must
+						have urgent or shut-off notice.</small></p>
+				</div>
+			</div>
+			<div class="col">
+				<img src="images/local_dining-24px.svg" class="service-icon card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="text-center card-title">Food Pantry</h5>
+					<p class="card-text"><small class="text-muted">We can provide help once per
+						month with emergency food and toiletries.</small></p>
+				</div>
+			</div>
+			<div class="col">
+				<img src="images/local_gas_station-24px.svg" class="service-icon card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="text-center card-title">Gas Voucher</h5>
+					<p class="card-text"><small class="text-muted">Can only be requested once every six
+						months.  Must have a valid/current drivers license (not an ID card).</small></p>
+				</div>
+			</div>
+			<div class="col">
+				<img src="images/local_grocery_store-24px.svg" class="service-icon card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="text-center card-title">Thrift Store Voucher</h5>
+					<p class="card-text"><small class="text-muted">Can only be requested once every six months.
+						The voucher is good for clothing and small household items. Thrift store hours TBA
+						(!!HOURS!!).</small></p>
+				</div>
+			</div>
+			<div class="col">
+				<img src="images/perm_identity-24px.svg" class="service-icon card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="text-center card-title">Drivers License/ID card</h5>
+					<p class="card-text"><small class="text-muted">If you are seeking an ID card, check with
+						DSHS to see if you qualify for a voucher, we will cover the difference. An appointment
+						will be scheduled to meet with you at the <a href="https://www.google.com/maps/place/Kent+Licensing+Agency+Inc/@47.378623,-122.24835,14z/data=!4m5!3m4!1s0x0:0x47235f811a68cb8b!8m2!3d47.3786226!4d-122.2483503?hl=en-US">Department of Licensing in Kent.</a></small></p>
+				</div>
+			</div>
+		</div>
+		</fieldset>
+
+	<!-- beginning of zip form -->
+	<form id="form-zip" method="get" action="form_display.php">
+		<fieldset class="form-group border p-2">
+			<legend>Check if your zip code is eligible</legend>
+			<div class="form-group">
+				<label for="zip">Zip Code:</label>
+				<select class="form-control" id="zip">
+					<option value="none" selected disabled>Select your zip code: </option>
+					<option value="98030">98030</option>
+					<option value="98031">98031</option>
+					<option value="98032">98032</option>
+					<option value="98042">98042</option>
+					<option value="noZip">No permanent residence</option>
+				</select>
+				<span class="text-danger d-none" id="err-zip">* Please select your zip code.</span>
+			</div>
+		</fieldset>
+	</form>
+
+	<!-- beginning of contact form -->
+	<form id="form-contact" method="get" action="confirmation.php">
+		<!-- gather contact information -->
+		<fieldset class="form-group border p-2">
+			<legend>Contact Info</legend>
+			<div class="form-group">
+				<label for="fname">First Name:</label>
+				<input type="text" class="form-control" id="fname" name="fname" required>
+			</div>
+			<div class="form-group">
+				<label for="lname">Last Name:</label>
+				<input type="text" class="form-control" id="lname" name="lname" required>
+			</div>
+			<div class="form-group">
+				<label for="email">Email:</label>
+				<input type="email" class="form-control" id="email" name="email"
+							 pattern='(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}
+                               \.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))'>
+			</div>
+			<div class="form-group">
+				<label for="phone">Phone Number:</label>
+				<input type="tel" class="form-control" id="phone" name="phone" maxlength="10"
+							 pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$">
+			</div>
+		</fieldset>
+
+		<!-- gather what kind of services they need -->
+		<fieldset class="form-group border p-2">
+			<legend>Select which services you need help with</legend>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" id="utilities" value="utilities" name="services[]">
+				<label class="form-check-label" for="utilities">
+					Utilities (electricity or water)
+				</label>
+			</div>
+			<div class="input-group mb-3 d-none">
+				<div class="custom-file">
+					<input type="file" class="custom-file-input" id="utilitiesFile">
+					<label class="custom-file-label" for="utilitiesFile">Optional: attach a picture of your current bill/final notice.</label>
+				</div>
+				<div class="input-group-append">
+					<span class="input-group-text">Upload</span>
+				</div>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" id="rent" value="rent" name="services[]">
+				<label class="form-check-label" for="rent">
+					Rent
+				</label>
+			</div>
+			<div class="input-group mb-3 d-none">
+				<div class="custom-file">
+					<input type="file" class="custom-file-input" id="rentFile">
+					<label class="custom-file-label" for="rentFile">Optional: attach a picture of your eviction notice notice.</label>
+				</div>
+				<div class="input-group-append">
+					<span class="input-group-text">Upload</span>
+				</div>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" id="gas" value="gas" name="services[]">
+				<label class="form-check-label" for="gas">
+					Gas
+				</label>
+			</div>
+			<div class="input-group mb-3 d-none">
+				<div class="custom-file">
+					<input type="file" class="custom-file-input" id="gasFile">
+					<label class="custom-file-label" for="gasFile">Optional: attach a
+						picture of your Washington State Drivers License</label>
+				</div>
+				<div class="input-group-append">
+					<span class="input-group-text">Upload</span>
+				</div>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" id="household" value="household" name="services[]">
+				<label class="form-check-label" for="household">
+					Household items and clothing
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" id="wadl" value="wadl" name="services[]">
+				<label class="form-check-label" for="wadl">
+					ID card or drivers license
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" id="food" value="food" name="services[]">
+				<label class="form-check-label" for="food">
+					Food
+				</label>
+			</div>
+		</fieldset>
+
+		<!-- agreement -->
+		<div class="checkbox">
+			<input type="checkbox" id="agreement" name="agreement" required>
+			<label for="agreement">
+				I agree to the terms and conditions.
+			</label>
+		</div>
+
+		<!-- order button -->
+		<input type="submit" value="Submit your request" class="btn btn-dark btn-lg">
+	</form>
+
+
+	<!-- Other Resources -->
+	<br>
+	<fieldset class="other-resources border p-2">
+		<legend>Other Resources</legend>
+		<ul class="resources-list">
+			<li class="list-item"><a class="link" href="https://www.211.org/">211</a><img class="logo img-fluid" src="images/211-logo.svg" alt="211-Logo"></li>
+
+			<li class="list-item"><a class="link" href="http://Kentmethodist.com/assistance">Kent Methodist
+				Assistance</a><img class="logo img-fluid" id="KentLogo" src="images/KentUMC+Logo.png" alt="KentUMC-Logo"></li>
+		</ul>
+	</fieldset>
+	<br>
+</div>
+	<!-- Footer -->
+	<div class="footer-container text-white">
+		<footer class="page-footer font-small bg-dark">
+
+			<!-- Footer Text -->
+			<div class="container-lg text-center text-md-left">
+
+				<!-- Grid row -->
+				<div class="row">
+
+					<!-- Grid column -->
+					<div class="col-md-6 mt-md-0 mt-3">
+						<!-- Links -->
+						<h5 class="text-uppercase">Address</h5>
+						<p>
+							24447 94th Ave. S Kent, WA 98030
+						</p>
+						<div id="map" style="width:100%;height:100px;"></div>
+
+						<script>
+							function initMap() {
+								// The location of kent methodist church
+								let kmuc = {lat: 47.381830, lng: -122.216370};
+								// The map,
+								let map = new google.maps.Map(
+									document.getElementById('map'), {zoom: 4, center: kmuc});
+								// The marker, positioned at Uluru
+								let marker = new google.maps.Marker({position: kmuc, map: map});
+							}
+						</script>
+
+						<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBa5iXdy8PdIF90E8mhaGrvrEso75VXrGk&callback=initMap"></script>
+
+					</div>
+					<!-- Grid column -->
+
+					<hr class="clearfix w-100 d-md-none pb-3">
+
+					<!-- Grid column -->
+					<div class="col-md-3 mb-md-0 mb-3">
+
+						<!-- Content -->
+						<h5 class="text-uppercase">Hours</h5>
+						<p>
+							Monday: 1:00pm to 4:00pm<br>
+							Tuesday: 9am to 12:00noon<br>
+							Wednesday: 1:00pm to 4:00pm<br>
+						</p>
+
+					</div>
+					<!-- Grid column -->
+
+					<!-- Grid column -->
+					<div class="col-md-3 mb-md-0 mb-3">
+
+						<!-- Links -->
+						<h5 class="text-uppercase">Contact Us</h5>
+						<p>
+							Call (253)852-4100<br>
+							or<br>
+							Complete this form
+						</p>
+
+					</div>
+					<!-- Grid column -->
+
+				</div>
+				<!-- Grid row -->
+				<!-- Footer Text -->
+
+				<!-- Copyright -->
+				<div class="footer-copyright text-center py-3">Created by DAR^2
+				</div>
+				<!-- Copyright -->
+				
+				<!--Admin Link-->
+				<div>
+				<a class="admin-link align-bottom text-white text-uppercase" href="admin.html">Admin Login</a>
+				</div>
+			</div>
+		</footer>
+	</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

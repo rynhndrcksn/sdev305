@@ -1,0 +1,29 @@
+
+
+/***** Services Section Code ******/
+.service-icon {
+    height: 100px;
+    width: 100%;
+}
+
+/*****Other Resources Styles*****/
+.logo {
+    width: 10%;
+    padding-left: 1%;
+}
+
+.logo#KentLogo {
+    width: 20%;
+}
+
+/***** Footer Styles *****/
+footer {
+    color: white;
+    position: absolute;
+    padding-top: 10px;
+    width: 100%;
+    height: 18em;
+    overflow: hidden;
+}
+
+
