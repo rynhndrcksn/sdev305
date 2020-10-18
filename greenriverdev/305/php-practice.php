@@ -28,13 +28,19 @@
 </head>
 <body>
 <?php // PHP doesn't have to be in one block and can be spread out instead
+	/*
 	echo "<h1>Hello World</h1>";
-
 	$name = "Bob";
 	$age = 19;
 	$isStudent = true;
 
 	echo "<p>$name is $age.</p>";
+	 */
+	echo "<p>Let's go!</p>";
+	echo '<p>Let\'s go!</p>';
+	echo '<p>Columbus arrived on 10/12/1492</p>';
+	echo "<br>";
+
 ?>
 
 <h2>Below is more PHP in a second code block</h2>
