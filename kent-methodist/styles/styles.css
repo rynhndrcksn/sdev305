@@ -94,9 +94,10 @@ legend#resources {
     color: #636a71;
 }
 
-img.footer-map {
+.gmap-footer {
+    display: block;
     width: 100%;
-    height: 100px;
+    height: 250px;
 }
 
 footer a.taber {
