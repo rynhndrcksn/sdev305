@@ -1,8 +1,9 @@
-# Ignore the bootstrap tutorial and sprint reviews
+# Ignore the bootstrap tutorial and anything else that doesn't need to be on GitLab/GitHub.
 greenriverdev/305/bootstrap-tutorial
 sprint*
 resources
 product*
+usability_tests
 
 # General .gitignore from Azuritul | https://gist.github.com/Azuritul
 # IDEA Ignores #
