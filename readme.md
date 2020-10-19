@@ -2,9 +2,6 @@
 
 ## Authors:
 
-* [Dana Clemmer](https://github.com/dclemmer2).
-* [Alisia Llavore](https://github.com/allavore2022).
-* [Ryan Riveria](https://github.com/rrivera123).
 * Ryan Hendrickson.
 
 ## Description:
