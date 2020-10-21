@@ -26,8 +26,8 @@
 	</button>
 	<div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
 		<div class="navbar-nav">
-			<a class="nav-link active" href="#about">About<span class="sr-only">(current)</span></a>
-			<a class="nav-link" href="#portfolio">Portfolio</a>
+			<a class="nav-link" href="#header">Back to top<span class="sr-only">(current)</span></a>
+			<a class="nav-link" href="#about">About</a>
 			<a class="nav-link" href="#contact">Get in Contact</a>
 		</div>
 	</div>
@@ -39,7 +39,7 @@
 <!-- HEADER -->
 <header class="bg-primary-color text-white text-center" id="header">
 	<div class="container d-flex align-items-center flex-column">
-		<img src="images/avataaars.png" alt="Avataar of Ryan Hendrickson">
+		<img src="images/avataaars.png" alt="Avataar of Ryan Hendrickson" class="avatar-size">
 		<h1 class="text-uppercase mb-3 mt-3">Ryan Hendrickson</h1>
 	</div>
 </header>
@@ -47,65 +47,40 @@
 
 
 <!-- PORTFOLIO -->
-<section class="page-section portfolio" id="portfolio">
-	<div class="container">
-		<!-- Portfolio Section Heading-->
-		<h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
-		<!-- Portfolio Grid Items-->
-		<div class="row">
-			<!-- Portfolio Item 1-->
-			<div class="col-md-6 col-lg-4 mb-5">
-				<div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
-					<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-						<div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-					</div>
-					<img class="img-fluid" src="assets/img/portfolio/cabin.png" alt="" />
-				</div>
+<section class="page-section portfolio mt-3 mb-3 container" id="portfolio">
+	<div class="card-deck">
+		<div class="card">
+			<a href="https://dar2.greenriverdev.com" target="_blank">
+				<img src="images/kent_outreach_preview.png" class="card-img-top" alt="Screenshot of Kent Outreach's website">
+			</a>
+			<div class="card-body">
+				<h5 class="card-title">Kent Outreach</h5>
+				<p class="card-text">Client wanted a website to assist low income/homeless individuals from their community.
+					Client wanted individuals to be able to read about the outreach project, discover what kind of services
+					were offered, and request assistance from the outreach.</p>
 			</div>
-			<!-- Portfolio Item 2-->
-			<div class="col-md-6 col-lg-4 mb-5">
-				<div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
-					<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-						<div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-					</div>
-					<img class="img-fluid" src="assets/img/portfolio/cake.png" alt="" />
-				</div>
+			<div class="card-footer">
+				<small class="text-muted">Last updated: Current project</small>
 			</div>
-			<!-- Portfolio Item 3-->
-			<div class="col-md-6 col-lg-4 mb-5">
-				<div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
-					<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-						<div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-					</div>
-					<img class="img-fluid" src="assets/img/portfolio/circus.png" alt="" />
-				</div>
+		</div>
+		<div class="card">
+			<img src="..." class="card-img-top" alt="...">
+			<div class="card-body">
+				<h5 class="card-title">Another Project</h5>
+				<p class="card-text">Text for when I add another project</p>
 			</div>
-			<!-- Portfolio Item 4-->
-			<div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-				<div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-					<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-						<div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-					</div>
-					<img class="img-fluid" src="assets/img/portfolio/game.png" alt="" />
-				</div>
+			<div class="card-footer">
+				<small class="text-muted">Last updated: Never</small>
 			</div>
-			<!-- Portfolio Item 5-->
-			<div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-				<div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
-					<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-						<div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-					</div>
-					<img class="img-fluid" src="assets/img/portfolio/safe.png" alt="" />
-				</div>
+		</div>
+		<div class="card">
+			<img src="..." class="card-img-top" alt="...">
+			<div class="card-body">
+				<h5 class="card-title">Another project</h5>
+				<p class="card-text">Text for when I add another project</p>
 			</div>
-			<!-- Portfolio Item 6-->
-			<div class="col-md-6 col-lg-4">
-				<div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
-					<div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-						<div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-					</div>
-					<img class="img-fluid" src="assets/img/portfolio/submarine.png" alt="" />
-				</div>
+			<div class="card-footer">
+				<small class="text-muted">Last updated: Never</small>
 			</div>
 		</div>
 	</div>
@@ -133,16 +108,10 @@
 
 
 <!-- CONTACT -->
-<section class="page-section" id="contact">
+<section class="page-section mt-3" id="contact">
 	<div class="container">
 		<!-- Contact Section Heading-->
 		<h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
-		<!-- Icon Divider-->
-		<div class="divider-custom">
-			<div class="divider-custom-line"></div>
-			<div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-			<div class="divider-custom-line"></div>
-		</div>
 		<!-- Contact Section Form-->
 		<div class="row">
 			<div class="col-lg-8 mx-auto">
@@ -188,40 +157,78 @@
 
 
 <!-- FOOTER -->
-<footer class="footer text-center text-white mt-3 bg-primary-color">
+<footer class="footer text-center text-white pt-3 bg-primary-color">
 	<div class="container">
 		<div class="row">
 			<!-- Footer Location-->
 			<div class="col-lg-4 mb-5 mb-lg-0">
 				<h4 class="text-uppercase mb-4">Location</h4>
 				<p class="lead mb-0">
-					2215 John Daniel Drive
+					South King County,
 					<br />
-					Clark, MO 65243
+					Greater Seattle Area
 				</p>
 			</div>
 			<!-- Footer Social Icons-->
 			<div class="col-lg-4 mb-5 mb-lg-0">
 				<h4 class="text-uppercase mb-4">Around the Web</h4>
-				<a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
-				<a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
-				<a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-				<a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
+				<!-- TWITTER -->
+				<a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/leaderelrond" target="_blank">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="44"
+							 height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="#55acee" stroke-linecap="round"
+							 stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						<path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+					</svg>
+				</a>
+
+				<!-- GITHUB -->
+				<a class="btn btn-outline-light btn-social mx-1" href="https://github.com/rynhndrcksn" target="_blank">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44"
+							 height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round"
+							 stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						<path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+					</svg>
+				</a>
+
+				<!-- GITHUB -->
+				<a class="btn btn-outline-light btn-social mx-1" href="https://gitlab.com/rynhndrcksn" target="_blank">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-gitlab" width="44"
+							 height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+							 stroke-linecap="round" stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						<path d="M21 14l-9 7l-9 -7l3 -11l3 7h6l3 -7z" />
+					</svg>
+				</a>
+
+				<!-- LINKEDIN -->
+				<a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/rynhndrcksn/" target="_blank">
+					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44"
+							 height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="#4875B4" stroke-linecap="round"
+							 stroke-linejoin="round">
+						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						<rect x="4" y="4" width="16" height="16" rx="2" />
+						<line x1="8" y1="11" x2="8" y2="16" />
+						<line x1="8" y1="8" x2="8" y2="8.01" />
+						<line x1="12" y1="16" x2="12" y2="11" />
+						<path d="M16 16v-3a2 2 0 0 0 -4 0" />
+					</svg>
+				</a>
 			</div>
+
+
 			<!-- Footer About Text-->
 			<div class="col-lg-4">
-				<h4 class="text-uppercase mb-4">About Freelancer</h4>
-				<p class="lead mb-0">
-					Freelance is a free to use, MIT licensed Bootstrap theme created by
-					<a href="http://startbootstrap.com">Start Bootstrap</a>
-					.
-				</p>
+				<h4 class="text-uppercase mb-4">Views on Privacy</h4>
+				<p class="lead mb-0">Ryan believes that privacy, and encryption are human rights that should be protected as
+					such and should be implemented in every product to help preserve these rights.</p>
 			</div>
 		</div>
 	</div>
 	<!-- Copyright Section-->
 	<div class="copyright py-4 text-center text-white">
-		<div class="container"><small>Copyright © rhendrickson.greenriverdev.com 2020</small></div>
+		<div class="container"><small>Copyright © rhendrickson11.greenriverdev.com 2020</small></div>
 	</div>
 </footer>
 
