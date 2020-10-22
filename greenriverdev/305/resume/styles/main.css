@@ -10,7 +10,9 @@
     background-color: var(--secondary-color);
 }
 
-.avatar-size {
-    height: 80%;
-    width: 80%;
+@media (max-width: 767px) {
+    .avatar-size {
+        height: 90%;
+        width: 90%;
+    }
 }

@@ -26,7 +26,7 @@
 	</button>
 	<div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
 		<div class="navbar-nav">
-			<a class="nav-link" href="#header">Back to top<span class="sr-only">(current)</span></a>
+			<a class="nav-link" href="#header">Back to top</a>
 			<a class="nav-link" href="#about">About</a>
 			<a class="nav-link" href="#contact">Get in Contact</a>
 		</div>
@@ -48,10 +48,12 @@
 
 <!-- PORTFOLIO -->
 <section class="page-section portfolio mt-3 mb-3 container" id="portfolio">
-	<div class="card-deck">
-		<div class="card">
+	<div class="card-deck justify-content-center">
+		<!-- Take col-4 class out when adding more cards to portfolio -->
+		<div class="card col-4">
 			<a href="https://dar2.greenriverdev.com" target="_blank">
-				<img src="images/kent_outreach_preview.png" class="card-img-top" alt="Screenshot of Kent Outreach's website">
+				<img src="images/kent_outreach_preview.png" class="card-img-top"
+						 alt="Screenshot of Kent Outreach's website">
 			</a>
 			<div class="card-body">
 				<h5 class="card-title">Kent Outreach</h5>
@@ -63,6 +65,7 @@
 				<small class="text-muted">Last updated: Current project</small>
 			</div>
 		</div>
+		<!--
 		<div class="card">
 			<img src="..." class="card-img-top" alt="...">
 			<div class="card-body">
@@ -83,13 +86,14 @@
 				<small class="text-muted">Last updated: Never</small>
 			</div>
 		</div>
+		-->
 	</div>
 </section>
 
 
 
 <!-- ABOUT -->
-<section class="page-section bg-primary text-white pt-3" id="about">
+<section class="page-section bg-primary text-white pt-5 pb-5" id="about">
 	<div class="container">
 		<!-- About Section Heading-->
 		<h2 class="page-section-heading text-center text-uppercase text-white">About Ryan</h2>
@@ -98,9 +102,13 @@
 			<div class="col-lg-4 ml-auto"><p class="lead">Ryan was born and raised in the Greater Seattle area.
 				He is currently a Junior in Green River College's Software Development Bachelors program.</p>
 			</div>
-			<div
-				class="col-lg-4 mr-auto"><p class="lead">Ryan is proficient with HTML5, CSS3, Bootstrap, JavaScript,
-				JQuery, PHP 7, MySQL 8, and Java.</p></div>
+			<div class="col-lg-4 mr-auto"><p class="lead">Ryan is proficient with:</p>
+				<ul>
+					<li>Front end web development (HTML5, CSS3, SASS, Bootstrap, & JavaScript)</li>
+					<li>Back end web development (PHP7, MariaDB 10)</li>
+					<li>Java</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </section>
@@ -110,44 +118,43 @@
 <!-- CONTACT -->
 <section class="page-section mt-3" id="contact">
 	<div class="container">
-		<!-- Contact Section Heading-->
 		<h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
-		<!-- Contact Section Form-->
 		<div class="row">
 			<div class="col-lg-8 mx-auto">
-				<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
-				<form id="contactForm" name="sentMessage" novalidate="novalidate">
+				<form id="contactForm" method="post" action="contact.php">
 					<div class="control-group">
 						<div class="form-group floating-label-form-group controls mb-0 pb-2">
-							<label>Name</label>
-							<input class="form-control" id="name" type="text" placeholder="Name" required="required" data-validation-required-message="Please enter your name." />
+							<label for="name">Name</label>
+							<input class="form-control" id="name" type="text" />
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>
 					<div class="control-group">
 						<div class="form-group floating-label-form-group controls mb-0 pb-2">
-							<label>Email Address</label>
-							<input class="form-control" id="email" type="email" placeholder="Email Address" required="required" data-validation-required-message="Please enter your email address." />
+							<label for="email">Email Address</label>
+							<input class="form-control" id="email" type="email">
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>
 					<div class="control-group">
 						<div class="form-group floating-label-form-group controls mb-0 pb-2">
-							<label>Phone Number</label>
-							<input class="form-control" id="phone" type="tel" placeholder="Phone Number" required="required" data-validation-required-message="Please enter your phone number." />
+							<label for="phone">Phone Number</label>
+							<input class="form-control" id="phone" type="tel">
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>
 					<div class="control-group">
 						<div class="form-group floating-label-form-group controls mb-0 pb-2">
-							<label>Message</label>
-							<textarea class="form-control" id="message" rows="5" placeholder="Message" required="required" data-validation-required-message="Please enter a message."></textarea>
+							<label for="message">Message</label>
+							<textarea class="form-control" id="message" rows="5"></textarea>
 							<p class="help-block text-danger"></p>
 						</div>
 					</div>
 					<br />
 					<div id="success"></div>
-					<div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Send</button></div>
+					<div class="form-group">
+						<button class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Send</button>
+					</div>
 				</form>
 			</div>
 		</div>
@@ -185,17 +192,17 @@
 				<!-- GITHUB -->
 				<a class="btn btn-outline-light btn-social mx-1" href="https://github.com/rynhndrcksn" target="_blank">
 					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="44"
-							 height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round"
+							 height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="#FFF" stroke-linecap="round"
 							 stroke-linejoin="round">
 						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
 						<path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
 					</svg>
 				</a>
 
-				<!-- GITHUB -->
+				<!-- GITLAB -->
 				<a class="btn btn-outline-light btn-social mx-1" href="https://gitlab.com/rynhndrcksn" target="_blank">
 					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-gitlab" width="44"
-							 height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+							 height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="#e2432a"
 							 stroke-linecap="round" stroke-linejoin="round">
 						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
 						<path d="M21 14l-9 7l-9 -7l3 -11l3 7h6l3 -7z" />
@@ -207,7 +214,7 @@
 					<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44"
 							 height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="#4875B4" stroke-linecap="round"
 							 stroke-linejoin="round">
-						<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+						<path stroke="none" d="M0 0h24v24H0z" fill="#"/>
 						<rect x="4" y="4" width="16" height="16" rx="2" />
 						<line x1="8" y1="11" x2="8" y2="16" />
 						<line x1="8" y1="8" x2="8" y2="8.01" />
@@ -228,7 +235,7 @@
 	</div>
 	<!-- Copyright Section-->
 	<div class="copyright py-4 text-center text-white">
-		<div class="container"><small>Copyright © rhendrickson11.greenriverdev.com 2020</small></div>
+		<div class="container"><small>Copyright © Ryan Hendrickson 2020</small></div>
 	</div>
 </footer>
 
