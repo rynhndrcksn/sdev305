@@ -23,7 +23,7 @@
 	</div>
 
 	<!-- order form -->
-	<form id="pizza-form" method="get" action="confirmation.php">
+	<form id="pizza-form" method="post" action="confirmation.php">
 		<fieldset class="form-group border p-2">
 			<legend>Contact Info</legend>
 			<div class="form-group">
@@ -92,7 +92,7 @@
 			<legend>Select your pizza size</legend>
 			<div class="form-group">
 				<label for="size">Pizza Size</label>
-				<select class="form-control" id="size">
+				<select class="form-control" id="size" name="size">
 					<option value="none" selected disabled>Select a size</option>
 					<option value="small">Small - 8"</option>
 					<option value="medium">Medium - 12"</option>

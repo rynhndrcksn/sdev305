@@ -71,12 +71,14 @@ function validate() {
 	}
 
 	// error check agreement
+	/*
 	let agreement = document.getElementById("agreement").checked;
 	if (!agreement.checked) {
 		let errAgreement = document.getElementById("err-agreement");
 		errAgreement.classList.remove("d-none");
 		isValid = false;
 	}
+	 */
 
 	return isValid;
 }

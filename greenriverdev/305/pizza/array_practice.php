@@ -26,4 +26,13 @@ foreach ($shows as $show) {
 }
 echo "</ol>";
 
+$colors["Sarah"] = "Blue";
+$colors["Kim"] = "Pink";
+$colors["Alisa"] = "Mint Green";
+var_dump($colors);
+
+foreach ($colors as $person=>$color) {
+	echo "<p>$person likes $color</p>";
+}
+
 echo "</pre>";
