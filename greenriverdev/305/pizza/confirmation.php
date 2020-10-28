@@ -45,25 +45,45 @@
 	    	$fullName = $fname." ".$lname;
 	    	$fromName = $fullName;
 	    	$address = $_POST["address"];
-	    	$size = $_POST['size'];
+	    	$method = $_POST["method"];
 	    	$toppings = implode(", ", $_POST['toppings']);
+	    	$size = $_POST['size'];
 	    	$fromEmail = "rhendrickson11@mail.greenriver.edu";
+
+	    	// calculate price of pizza
+				$toppingCount = count($_POST['toppings']);
+				define("TAX_RATE", 1.1);
+				$price = 10;
+				if($size == 'medium') {
+					$price = 15;
+				} elseif ($size == 'large') {
+					$price = 20;
+				} elseif ($size == 'family') {
+					$price = 25;
+				}
+
+				$price += ($toppingCount * 0.5);
+				$price *= TAX_RATE;
+				$price = number_format($price, 2);
 
 	    	// print order summary
 	    	echo "<p>Name: $fname $lname</p>";
 	    	echo "<p>Address: $address</p>";
-	    	echo "<p>Size: $size</p>";
+	    	echo "<p>Delivery or Pickup: $method</p>";
 	    	echo "<p>Toppings: $toppings</p>";
+	    	echo "<p>Size: $size</p>";
+	    	echo "<p>Total: $$price</p>";
 
 	    	// send email
 				$to = "rhendrickson11@mail.greenriver.edu";
 				$subject = "Pizza order placed";
 				$message = "Order from $fullName\r\n";
 				$message .="Address: $address\r\n";
-				$message .="Toppings: $toppings";
+				$message .="Toppings: $toppings\r\n";
+				$message .="Total price: $price";
 				$headers = "Name: $fromName <$fromEmail>";
 
-				$success = mail($to, $subject, $message, $headers);
+				// $success = mail($to, $subject, $message, $headers);
 
 				// check success
 			/*
@@ -74,7 +94,7 @@
 				}
 			*/
 				// don't have to do it this way, just looks neater
-				echo $success ? "<p>Your order has been placed</p>" : "<p>Sorry, there was a problem.</p>";
+				// echo $success ? "<p>Your order has been placed</p>" : "<p>Sorry, there was a problem.</p>";
 	    ?>
   </div>
 </body>
