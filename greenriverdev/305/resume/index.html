@@ -10,6 +10,12 @@
 				integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 	<!-- My CSS Styles -->
 	<link rel="stylesheet" href="styles/main.css">
+
+	<!-- favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
+	<link rel="manifest" href="images/favicon_io/site.webmanifest">
 	<title>Ryan Hendrickson's Website</title>
 </head>
 <body>
@@ -17,7 +23,7 @@
 <!-- INSPIRATION https://startbootstrap.com/themes/freelancer/ -->
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-secondary-color sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary-color fixed-top">
 <div class="container">
 	<a class="navbar-brand" href="#">Ryan Hendrickson</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -29,6 +35,7 @@
 			<a class="nav-link" href="#header">Back to top</a>
 			<a class="nav-link" href="#about">About</a>
 			<a class="nav-link" href="#contact">Get in Contact</a>
+			<a class="nav-link" href="guestbook.html">GuestBook</a>
 		</div>
 	</div>
 </div>
@@ -37,7 +44,7 @@
 
 
 <!-- HEADER -->
-<header class="bg-primary-color text-white text-center" id="header">
+<header class="bg-primary-color text-white text-center pt-5" id="header">
 	<div class="container d-flex align-items-center flex-column">
 		<img src="images/avataaars.png" alt="Avataar of Ryan Hendrickson" class="avatar-size">
 		<h1 class="text-uppercase mb-3 mt-3">Ryan Hendrickson</h1>
@@ -96,7 +103,7 @@
 <section class="page-section bg-primary text-white pt-5 pb-5" id="about">
 	<div class="container">
 		<!-- About Section Heading-->
-		<h2 class="page-section-heading text-center text-uppercase text-white">About Ryan</h2>
+		<h2 class="page-section-heading text-center text-uppercase text-white pt-3">About Ryan</h2>
 		<!-- About Section Content-->
 		<div class="row">
 			<div class="col-lg-5 ml-auto"><p class="lead">Ryan was born and raised in the Greater Seattle area.
@@ -117,8 +124,8 @@
 
 <!-- CONTACT -->
 <section class="page-section mt-3" id="contact">
-	<div class="container">
-		<h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
+	<div class="container mb-3">
+		<h2 class="page-section-heading text-center text-uppercase text-secondary mb-0 pt-5">Contact Me</h2>
 		<div class="row">
 			<div class="col-lg-8 mx-auto">
 				<form id="contactForm" method="post" action="contact.php">
@@ -238,7 +245,6 @@
 		<div class="container"><small>Copyright © Ryan Hendrickson 2020</small></div>
 	</div>
 </footer>
-
 
 
 
