@@ -6,9 +6,21 @@
 	 */
 
 // error reporting
-// ini_set('display_errors', 1);
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
+// redirect user if confirmation is empty | header redirects the user, and needs to be before ANY html
+if (empty($_POST)) {
+	header('location: index.php');
+}
+
+// set time zone
+date_default_timezone_set('America/Los_Angeles');
+
+// include files
 include ('includes/head.html');
+// require cnxn because if it can't be found we need to terminate the script, not just let it run.
+require ('includes/cnxn.php');
 ?>
 <body>
   <div class="container" id="main">
@@ -23,8 +35,14 @@ include ('includes/head.html');
 
 			<h2>Order Summary:</h2>
 	   	<?php
+			$isValid = true;
 			// get data from post array
-	  		$fname = $_POST["fname"];
+			if (empty($_POST['fname'])) {
+				echo '<p>First name is required.</p>';
+				$isValid = false;
+			} else {
+				$fname = $_POST["fname"];
+			}
 	    	$lname = $_POST["lname"];
 	    	$fullName = $fname." ".$lname;
 	    	$fromName = $fullName;
@@ -49,6 +67,15 @@ include ('includes/head.html');
 				$price += ($toppingCount * 0.5);
 				$price *= TAX_RATE;
 				$price = number_format($price, 2);
+
+				// save order to database
+	    	$sql = "INSERT INTO pizza(`fname`, `lname`, `address`, `size`, `toppings`, `method`, `price`)
+				VALUES ('$fname', '$lname', '$address', '$size', '$toppings', '$method', '$price')";
+	    	$success = mysqli_query($cnxn, $sql);
+	    	if (!$success) {
+	    		echo '<p>Sorry, our wires got crossed </p>';
+	    		return;
+				}
 
 	    	// print order summary
 	    	echo "<p>Name: $fname $lname</p>";
