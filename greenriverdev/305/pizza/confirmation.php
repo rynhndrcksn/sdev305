@@ -16,6 +16,7 @@ if (empty($_POST)) {
 
 // set time zone
 date_default_timezone_set('America/Los_Angeles');
+$timestamp = date("Y/m/d h:i:s");
 
 // include files
 include ('includes/head.html');

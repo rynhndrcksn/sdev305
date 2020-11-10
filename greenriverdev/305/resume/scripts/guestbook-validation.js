@@ -113,7 +113,7 @@ function validate() {
 		} else {
 			let error = document.getElementById("err-email-format");
 			error.classList.add("d-none");
-			isValid = false;
+			isValid = true;
 		}
 	}
 
