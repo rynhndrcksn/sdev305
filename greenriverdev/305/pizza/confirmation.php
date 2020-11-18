@@ -21,35 +21,75 @@ $timestamp = date("Y/m/d h:i:s");
 // include files
 include ('includes/head.html');
 // require cnxn because if it can't be found we need to terminate the script, not just let it run.
-require ('includes/cnxn.php');
+require ($_SERVER['HOME'].'/includes/cnxn.php');
+require ('includes/pizzaFunctions.php');
 ?>
 <body>
   <div class="container" id="main">
-
-    <!-- jumbotron start -->
-      <div class="jumbotron">
-        <h1 class="display-4">Welcome to Poppa's Pizza</h1>
-        <p class="lead">Serving the Green River community since 1970!</p>
-      </div>
+  	<!-- jumbotron start -->
+    	<div class="jumbotron">
+      	<h1 class="display-4">Welcome to Poppa's Pizza</h1>
+				<p class="lead">Serving the Green River community since 1970!</p>
+			</div>
 
       <h1>Thank you for your order!</h1>
 
 			<h2>Order Summary:</h2>
 	   	<?php
-			$isValid = true;
-			// get data from post array
-			if (empty($_POST['fname'])) {
-				echo '<p>First name is required.</p>';
-				$isValid = false;
-			} else {
-				$fname = $_POST["fname"];
-			}
-	    	$lname = $_POST["lname"];
+				$isValid = true;
+
+				//Check first name
+				if (validName($_POST['fname'])) {
+					$fname = $_POST['fname'];
+				}
+				else {
+					echo "<p>Invalid first name.</p>";
+					return;
+				}
+
+				//Check last name
+				if (validName($_POST['lname'])) {
+					$lname = $_POST['lname'];
+				}
+				else {
+					echo "<p>Invalid last name.</p>";
+					return;
+				}
+
 	    	$fullName = $fname." ".$lname;
-	    	$fromName = $fullName;
-	    	$address = $_POST["address"];
-	    	$method = $_POST["method"];
-	    	$toppings = implode(", ", $_POST['toppings']);
+
+	    	// get the method
+				if (isset($_POST['method']) && validMethod($_POST['method'])) {
+					$method = $_POST["method"];
+				} else {
+					echo "<p>Please select a method.</p>";
+					$method = null;
+					return;
+				}
+
+				// validate address
+				if ($method == 'delivery') {
+					if (!empty($_POST['address'])) {
+						$address = $_POST['address'];
+					} else {
+						echo '<p>Please enter and address for delivery.</p>';
+						$address = null;
+						return;
+					}
+				}
+
+				// validate toppings
+			  $toppings = 'cheese';
+				if (isset($_POST['toppings'])) {
+					if (!validToppings($_POST['toppings'])) {
+						echo '<p>Rude</p>';
+						// do return here because if this executes, we've been spoofed and there's no need to keep going
+						return;
+					}
+					$toppings = implode(", ", $_POST['toppings']);
+				}
+
+
 	    	$size = $_POST['size'];
 	    	$fromEmail = "rhendrickson11@mail.greenriver.edu";
 
@@ -68,6 +108,15 @@ require ('includes/cnxn.php');
 				$price += ($toppingCount * 0.5);
 				$price *= TAX_RATE;
 				$price = number_format($price, 2);
+
+				// use mysql function to prevent sql injections
+				$fname = mysqli_real_escape_string($cnxn, $fname);
+				$lname = mysqli_real_escape_string($cnxn, $lname);
+				$address = mysqli_real_escape_string($cnxn, $address);
+				$size = mysqli_real_escape_string($cnxn, $size);
+				$toppings = mysqli_real_escape_string($cnxn, $toppings);
+				$method = mysqli_real_escape_string($cnxn, $method);
+				$price = mysqli_real_escape_string($cnxn, $price);
 
 				// save order to database
 	    	$sql = "INSERT INTO pizza(`fname`, `lname`, `address`, `size`, `toppings`, `method`, `price`)
@@ -93,7 +142,7 @@ require ('includes/cnxn.php');
 				$message .="Address: $address\r\n";
 				$message .="Toppings: $toppings\r\n";
 				$message .="Total price: $price";
-				$headers = "Name: $fromName <$fromEmail>";
+				$headers = "Name: $fullName <$fromEmail>";
 
 				// $success = mail($to, $subject, $message, $headers);
 
