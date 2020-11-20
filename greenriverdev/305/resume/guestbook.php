@@ -5,8 +5,6 @@
  */
 
 include ('includes/header.html');
-require ($_SERVER['HOME'].'/includes/cnxn.php');
-require ('includes/validation.php');
 ?>
 <body class="bg-primary-color">
 
@@ -25,7 +23,7 @@ require ('includes/validation.php');
 </div>
 
 <!-- FORM -->
-<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" id="guestbookForm"
+<form action="submit-guestbook.php" method="post" id="guestbookForm"
 			class="container text-color-secondary pb-5 border-bottom">
 	<h2 class="text-center pt-5">Contact Information:</h2>
 	<div class="row">
@@ -130,4 +128,4 @@ require ('includes/validation.php');
 </form>
 
 <?php include ('includes/footer.html'); ?>
-<script src="scripts/guestbook-validation.js"></script>
+<!--<script src="scripts/guestbook-validation.js"></script>-->

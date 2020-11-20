@@ -1,7 +1,7 @@
 <?php
 // error reporting
-//ini_set('display_errors', 1);
-//error_reporting(E_ALL);
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 // redirect user if form is empty | header redirects the user, and needs to be before ANY html
 if (empty($_POST)) {
@@ -32,82 +32,79 @@ require ('includes/validation.php')
 	$isValid = true;
 
 	// prep all of our input from the form
-	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-		// validate first name
-		if (validText($_POST['fname'])) {
-			$fname = prep_input($_POST['fname']);
-			$fullName = $fname;
-		} else {
-			$fnameErr = '* Please enter a valid first name';
-			$isValid = false;
-		}
-
-		// validate last name
-		if (validText($_POST['lname'])) {
-			$lname = prep_input($_POST['lname']);
-			$fullName .= " ".$lname;
-		} else {
-			$lnameErr = '* Please enter a valid last name';
-			$isValid = false;
-		}
-
-		// validate title (if one is entered)
-		if (isset($_POST['title'])) {
-			if (validText($_POST['title'])) {
-				$job_title = prep_input($_POST['title']);
-			} else {
-				$titleErr = '* Please enter a valid title';
-				$isValid = false;
-			}
-		}
-
-		// validate company (if one is entered)
-		if (isset($_POST['company'])) {
-			if (validText($_POST['company'])) {
-				$company = prep_input($_POST['company']);
-			} else {
-				$companyErr = '* Please enter a valid company';
-				$isValid = false;
-			}
-		}
-
-		// validate email
-		if (isset($_POST['email'])) {
-			if (validEmail($_POST['email'])) {
-				$email = prep_input($_POST['email']);
-			} else {
-				$emailErr = '* Please enter a valid email';
-				$isValid = false;
-			}
-		}
-
-		// validate linkedin
-		if (isset($_POST['linkedin'])) {
-			if (validURL($_POST['linkedin'])) {
-				$linkedin = prep_input($_POST['linkedin']);
-			} else {
-				$linkedinErr = '* Please enter a valid LinkedIn URL';
-				$isValid = false;
-			}
-		}
-
-		// validate how we met
-		if (validMet($_POST['how-met'])) {
-			$how_met = prep_input($_POST['how-met']);
-		} else {
-			$how_metErr = '* Please enter a valid way we met';
-			$isValid = false;
-		}
-
-		// if the user put 'other' for how we met, get how we met
-		if ($how_met == 'other') {
-			$other = prep_input($_POST['specifyOther']);
-		}
-
-		// get their message
-		$comment = prep_input($_POST['message']);
+	// validate first name
+	if (validText($_POST['fname'])) {
+		$fname = prep_input($_POST['fname']);
+		$fullName = $fname;
+	} else {
+		$fnameErr = '* Please enter a valid first name';
+		$isValid = false;
 	}
+
+	// validate last name
+	if (validText($_POST['lname'])) {
+		$lname = prep_input($_POST['lname']);
+		$fullName .= " ".$lname;
+	} else {
+		$lnameErr = '* Please enter a valid last name';
+		$isValid = false;
+	}
+
+	// validate title (if one is entered)
+	if (isset($_POST['title'])) {
+		if (validText($_POST['title'])) {
+			$job_title = prep_input($_POST['title']);
+		} else {
+			$titleErr = '* Please enter a valid title';
+			$isValid = false;
+		}
+	}
+
+	// validate company (if one is entered)
+	if (isset($_POST['company'])) {
+		if (validText($_POST['company'])) {
+			$company = prep_input($_POST['company']);
+		} else {
+			$companyErr = '* Please enter a valid company';
+			$isValid = false;
+		}
+	}
+
+	// validate email
+	if (isset($_POST['email'])) {
+		if (validEmail($_POST['email'])) {
+			$email = prep_input($_POST['email']);
+		} else {
+			$emailErr = '* Please enter a valid email';
+			$isValid = false;
+		}
+	}
+
+	// validate linkedin
+	if (isset($_POST['linkedin'])) {
+		if (validURL($_POST['linkedin'])) {
+			$linkedin = prep_input($_POST['linkedin']);
+		} else {
+			$linkedinErr = '* Please enter a valid LinkedIn URL';
+			$isValid = false;
+		}
+	}
+
+	// validate how we met
+	if (validMet($_POST['how-met'])) {
+		$how_met = prep_input($_POST['how-met']);
+	} else {
+		$how_metErr = '* Please enter a valid way we met';
+		$isValid = false;
+	}
+
+	// if the user put 'other' for how we met, get how we met
+	if ($how_met == 'other') {
+		$other = prep_input($_POST['specifyOther']);
+	}
+
+	// get their message
+	$comment = prep_input($_POST['message']);
 
 
 	if (isset($_POST['mailingList'])) {

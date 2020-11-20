@@ -19,7 +19,7 @@ function validText($data) {
 }
 
 function validEmail($data) {
-	return filter_var(prep_input($data), FILTER_VALIDATE_EMAIL);
+	return filter_var(prep_input($data), FILTER_VALIDATE_EMAIL) || empty($data);
 }
 
 function validURL($data) {
