@@ -13,7 +13,8 @@ date_default_timezone_set('America/Los_Angeles');
 $timestamp = date("Y/m/d H:i:s");
 
 include ('includes/header.html');
-require ('includes/cnxn.php');
+require ($_SERVER['HOME'].'/includes/cnxn.php');
+require ('includes/validation.php')
 ?>
 <body>
 <a href="index.php" class="badge badge-secondary">Back Home</a>
@@ -29,20 +30,86 @@ require ('includes/cnxn.php');
 
 	<?php
 	$isValid = true;
-	// get data from post array
-	if (!isset($_POST['fname'])) {
-		return;
+
+	// prep all of our input from the form
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+		// validate first name
+		if (validText($_POST['fname'])) {
+			$fname = prep_input($_POST['fname']);
+			$fullName = $fname;
+		} else {
+			$fnameErr = '* Please enter a valid first name';
+			$isValid = false;
+		}
+
+		// validate last name
+		if (validText($_POST['lname'])) {
+			$lname = prep_input($_POST['lname']);
+			$fullName .= " ".$lname;
+		} else {
+			$lnameErr = '* Please enter a valid last name';
+			$isValid = false;
+		}
+
+		// validate title (if one is entered)
+		if (isset($_POST['title'])) {
+			if (validText($_POST['title'])) {
+				$job_title = prep_input($_POST['title']);
+			} else {
+				$titleErr = '* Please enter a valid title';
+				$isValid = false;
+			}
+		}
+
+		// validate company (if one is entered)
+		if (isset($_POST['company'])) {
+			if (validText($_POST['company'])) {
+				$company = prep_input($_POST['company']);
+			} else {
+				$companyErr = '* Please enter a valid company';
+				$isValid = false;
+			}
+		}
+
+		// validate email
+		if (isset($_POST['email'])) {
+			if (validEmail($_POST['email'])) {
+				$email = prep_input($_POST['email']);
+			} else {
+				$emailErr = '* Please enter a valid email';
+				$isValid = false;
+			}
+		}
+
+		// validate linkedin
+		if (isset($_POST['linkedin'])) {
+			if (validURL($_POST['linkedin'])) {
+				$linkedin = prep_input($_POST['linkedin']);
+			} else {
+				$linkedinErr = '* Please enter a valid LinkedIn URL';
+				$isValid = false;
+			}
+		}
+
+		// validate how we met
+		if (validMet($_POST['how-met'])) {
+			$how_met = prep_input($_POST['how-met']);
+		} else {
+			$how_metErr = '* Please enter a valid way we met';
+			$isValid = false;
+		}
+
+		// if the user put 'other' for how we met, get how we met
+		if ($how_met == 'other') {
+			$other = prep_input($_POST['specifyOther']);
+		}
+
+		// get their message
+		$comment = prep_input($_POST['message']);
 	}
-	$fname = $_POST["fname"];
-	$lname = $_POST["lname"];
-	$fullName = $fname." ".$lname;
-	$job_title = $_POST["title"];
-	$company = $_POST["company"];
-	$email = $_POST['email'];
-	$linkedin = $_POST['linkedin'];
-	$how_met = $_POST['how-met'];
-	$other = $_POST['specifyOther'];
-	$comment = $_POST['message'];
+
+
 	if (isset($_POST['mailingList'])) {
 		$mailingList = true;
 	} else {
@@ -108,7 +175,7 @@ require ('includes/cnxn.php');
 	if ($mail) {
 		echo '<p>You have signed the guestbook!</p>';
 	} else {
-		echo '<p>Sorry, there was a problem signing the guestbook</p>';
+		echo '<p>Sorry, there was a problem signing the guestbook.</p>';
 	}
 
 	// save data to database

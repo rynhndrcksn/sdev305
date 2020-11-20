@@ -5,6 +5,8 @@
  */
 
 include ('includes/header.html');
+require ($_SERVER['HOME'].'/includes/cnxn.php');
+require ('includes/validation.php');
 ?>
 <body class="bg-primary-color">
 
@@ -23,7 +25,8 @@ include ('includes/header.html');
 </div>
 
 <!-- FORM -->
-<form action="submit-guestbook.php" method="post" id="guestbookForm" class="container text-color-secondary pb-5 border-bottom">
+<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post" id="guestbookForm"
+			class="container text-color-secondary pb-5 border-bottom">
 	<h2 class="text-center pt-5">Contact Information:</h2>
 	<div class="row">
 		<div class="col-md form-group">
@@ -86,7 +89,7 @@ include ('includes/header.html');
 						<span class="input-group-text" id="basic-addon1">Specify other:</span>
 					</label>
 				</div>
-				<input type="text" id="specifyOther" name="specifyOther" class="form-control" aria-label="Username"
+				<input type="text" id="specifyOther" name="specifyOther" class="form-control" aria-label="specify how we met"
 							 aria-describedby="basic-addon1">
 			</div>
 			<span class="text-danger d-none" id="err-met-other">*Please enter the other way we met.</span>

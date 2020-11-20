@@ -13,7 +13,7 @@ date_default_timezone_set('America/Los_Angeles');
 $timestamp = date("Y/m/d H:i:s");
 
 include ('includes/header.html');
-require ('includes/cnxn.php');
+require ($_SERVER['HOME'].'/includes/cnxn.php');
 ?>
 <body>
 <a href="index.php" class="badge badge-secondary">Back Home</a>
