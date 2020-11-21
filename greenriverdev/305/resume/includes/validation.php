@@ -13,21 +13,52 @@ function prep_input($data) {
 	return $data;
 }
 
+function validNames($data) {
+	if (empty($data)) {
+		return false;
+	} else {
+		return preg_match("/^[a-zA-z-' ]*$/", prep_input($data));
+	}
+}
 
 function validText($data) {
-	return empty($data) && prep_input(preg_match("/^[a-zA-z-' ]*$/", $data));
+	if (empty($data)) {
+		return true;
+	} else {
+		return preg_match("/^[0-9a-zA-z-' ]*$/" , prep_input($data));
+	}
 }
 
 function validEmail($data) {
-	return filter_var(prep_input($data), FILTER_VALIDATE_EMAIL) || empty($data);
+	if (empty($data)) {
+		return true;
+	} else {
+		return filter_var(prep_input($data), FILTER_VALIDATE_EMAIL);
+	}
 }
 
 function validURL($data) {
-	return preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i", prep_input
-	($data));
+	if (empty($data)) {
+		return true;
+	} else {
+		return filter_var($data, FILTER_VALIDATE_URL);
+	}
 }
 
 function validMet($data) {
-	$validMets = array('meetup', 'jobfair', 'class', 'other', 'nomeet');
-	return array_search(prep_input($data), $validMets);
+	if (empty($data)) {
+		return false;
+	} else {
+		$validMets = ['placeholder', 'meetup', 'jobfair', 'class', 'other', 'nomeet'];
+		return array_search(prep_input($data), $validMets);
+	}
+}
+
+function validMail($data) {
+	if (empty($data)) {
+		return false;
+	} else {
+		$validMail = ['placeholder', 'html', 'text'];
+		return array_search(prep_input($data), $validMail);
+	}
 }
