@@ -215,9 +215,22 @@ require ('includes/validation.php')
 			echo '<p>Sorry, there was a problem signing the guestbook.</p>';
 		}
 
+		// use mysql function to prevent sql injections
+		$fname = mysqli_real_escape_string($cnxn, $fname);
+		$lname = mysqli_real_escape_string($cnxn, $lname);
+		$title = mysqli_real_escape_string($cnxn, $title);
+		$company = mysqli_real_escape_string($cnxn, $company);
+		$email = mysqli_real_escape_string($cnxn, $email);
+		$linkedin = mysqli_real_escape_string($cnxn, $linkedin);
+		$how_met = mysqli_real_escape_string($cnxn, $how_met);
+		$specifyOther = mysqli_real_escape_string($cnxn, $specifyOther);
+		$comment = mysqli_real_escape_string($cnxn, $comment);
+		$mailingList = mysqli_real_escape_string($cnxn, $mailingList);
+		$mailingType = mysqli_real_escape_string($cnxn, $mailingType);
+
 		// save data to database
 		$sql = "INSERT INTO guestbook(`first_name`, `last_name`, `job_title`, `company`, `email`, `linkedin`, `how_met`, `other`, `message`, `mailing_list`, `email_format`, `contact_date`)
-					VALUES ('$fname', '$lname', '$title', '$company', '$email', '$linkedin', '$how_met', '$specifyOther', '$comment', '$mailingList', '$email', '$timestamp')";
+					VALUES ('$fname', '$lname', '$title', '$company', '$email', '$linkedin', '$how_met', '$specifyOther', '$comment', '$mailingList', '$mailingType', '$timestamp')";
 		$success = mysqli_query($cnxn, $sql);
 		if (!$success) {
 			echo '<p>Sorry, our wires got crossed </p>';
