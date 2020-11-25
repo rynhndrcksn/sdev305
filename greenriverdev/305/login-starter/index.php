@@ -1,14 +1,17 @@
 <?php
 /**
- *  File name & path
- *  Author
- *  Date
- *  Description
+ *  greenriverdev/305/login-starter/login.php
+ *  Ryan Hendrickson
+ *  November 23rd, 2020.
+ *  Index page for demo purposes
  */
 
 //Turn on error reporting -- this is critical!
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+
+// bring in our session information to validate our login
+require ('check-login.php');
 
 ?>
 
