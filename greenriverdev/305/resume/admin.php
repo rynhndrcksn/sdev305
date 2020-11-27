@@ -8,13 +8,18 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+require ('check-login.php');
+
 include ('includes/header.html');
 
 // require cnxn because if it can't be found we need to terminate the script, not just let it run.
-require ('includes/cnxn.php');
+require ($_SERVER['HOME'].'/includes/cnxn.php');
 ?>
 <body>
-<a href="guestbook.php" class="badge badge-secondary">Back to Guestbook</a>
+<!-- to guestbook.php -->
+<a href="guestbook.php" class="badge badge-secondary float-left">Back to Guestbook</a>
+<!-- to logout.php -->
+<a href="logout.php" class="badge badge-secondary float-right">Logout</a>
 <div class="container pb-5 border-bottom" id="main">
 	<!-- jumbotron start -->
 	<div class="jumbotron">

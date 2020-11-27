@@ -19,10 +19,10 @@ require('includes/validation.php');
 <body class="bg-primary-color">
 
 <!-- BACK TO INDEX.php -->
-<a href="index.php" class="badge badge-secondary">Back Home</a>
+<a href="index.php" class="badge badge-secondary float-left">Back Home</a>
 
 <!-- TO ADMIN.html -->
-<a href="admin.php" class="badge badge-secondary float-right">Admin Login</a>
+<a href="admin.php" class="badge badge-secondary float-right">Admin Page</a>
 
 <!-- JUMBOTRON -->
 <div class="jumbotron jumbotron-fluid bg-secondary-color">
