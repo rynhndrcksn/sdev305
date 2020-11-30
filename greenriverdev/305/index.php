@@ -1,2 +1,2 @@
 <?php
-    echo "Hello, World!";
+    header('location: resume/index.php');

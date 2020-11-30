@@ -1,0 +1,50 @@
+<!-- https://rhendrickson.greenriveredu.com/305/ajax-demo/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<!-- favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="../resume/images/favicon_io/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../resume/images/favicon_io/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../resume/images/favicon_io/favicon-16x16.png">
+	<link rel="manifest" href="images/favicon_io/site.webmanifest">
+
+	<title>AJAX Demo</title>
+</head>
+<body>
+<h1>Just a demo for some AJAX</h1>
+<h2>Show a phrase</h2>
+<label for="name">Enter a name:</label>
+<input type="text" id="name" name="name">
+
+<button id="go">Go</button>
+<div id="result">
+
+</div>
+
+<!-- import jquery library -->
+<script src="//code.jquery.com/jquery.js"></script>
+<!-- our scripts using jquery-->
+<script>
+	// $ tells jquery to select something. So we're selecting our element with id of '#go', and on click perform
+	// the anonymous function that does whatever we want it to
+	$('#go').on('click', function () {
+
+		// get the value of the text box
+		let name = $('#name').val();
+
+		// make an AJAX call has the following layout
+		// $.post(script, data (optional, if empty do {}), function() {});
+		// after the script runs (showPhrase.php), the output gets passed into the function as the result parameter.
+		$.post('showPhrase.php', {name:name}, function (result) {
+			// if the adjective is 'funny' then append a ! to it
+			if (result.includes('funny')) {
+				result += '!';
+			}
+			$('#result').html(result);
+		});
+	});
+</script>
+</body>
+</html>
