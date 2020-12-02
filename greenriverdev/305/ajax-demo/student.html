@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Ajax Demo with SQL</title>
+</head>
+<body>
+<H1>Student lookup:</H1>
+<label for="sid">Enter a SID:</label>
+<input type="text" id="sid">
+<br>
+<button id="btn">Search</button>
+<hr>
+<div id="result">
+
+</div>
+
+<!-- import JQuery library -->
+<script src="//code.jquery.com/jquery.js"></script>
+<!-- Ajax script block -->
+<script>
+	// get SID from form
+	$('#btn').on('click', function() {
+		let sid = $('#sid').val();
+		$.post('student-lookup.php', {sid:sid}, function (result) {
+			$('#result').html(result);
+		});
+	});
+</script>
+
+</body>
+</html>
