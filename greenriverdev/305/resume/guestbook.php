@@ -50,19 +50,21 @@ $fnameErr = $lnameErr = $titleErr = $companyErr = $emailErr = $linkedinErr = $ho
 		<div class="col-md form-group">
 			<label for="fname">First Name:</label>
 			<input type="text" class="form-control" id="fname" name="fname" value="<?php echo htmlspecialchars($fname);?>">
-			<span class="text-danger" id="err-fname"><?php echo $fnameErr;?></span>
+			<span class="text-danger d-none" id="err-fname">*Please enter your first name.</span>
+			<span class="text-danger" id="err-fname-php"><?php echo $fnameErr;?></span>
 		</div>
 		<div class="col-md form-group">
 			<label for="lname">Last Name:</label>
 			<input type="text" class="form-control" id="lname" name="lname" value="<?php echo htmlspecialchars($lname);?>">
-			<span class="text-danger" id="err-lname"><?php echo $lnameErr;?></span>
+			<span class="text-danger d-none" id="err-lname">*Please enter your last name.</span>
+			<span class="text-danger" id="err-lname-php"><?php echo $lnameErr;?></span>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md form-group">
 			<label for="title">Job Title:</label>
 			<input type="text" class="form-control" id="title" name="title" value="<?php echo htmlspecialchars($title);?>">
-			<span class="text-danger" id="err-title"><?php echo $titleErr;?></span>
+			<span class="text-danger" id="err-title-php"><?php echo $titleErr;?></span>
 		</div>
 		<div class="col-md form-group">
 			<label for="company">Company:</label>
@@ -74,12 +76,15 @@ $fnameErr = $lnameErr = $titleErr = $companyErr = $emailErr = $linkedinErr = $ho
 		<div class="col-md form-group">
 			<label for="email">Email Address:</label>
 			<input type="text" class="form-control" id="email" name="email"  value="<?php echo htmlspecialchars($email);?>">
+			<span class="text-danger d-none" id="err-email-empty">*Please enter a valid email.</span>
+			<span class="text-danger d-none" id="err-email-wrong">*Please enter a valid email format.</span>
 			<span class="text-danger" id="err-email"><?php echo $emailErr;?></span>
 		</div>
 		<div class="col-md form-group">
 			<label for="linkedin">LinkedIn Profile:</label>
 			<input type="text" class="form-control" id="linkedin" name="linkedin" value="<?php echo htmlspecialchars($linkedin);?>">
-			<span class="text-danger" id="err-linkedin"><?php echo $linkedinErr;?></span>
+			<span class="text-danger d-none" id="err-linkedin">*Please enter a valid LinkedIn URL.</span>
+			<span class="text-danger" id="err-linkedin-php"><?php echo $linkedinErr;?></span>
 		</div>
 	</div>
 
@@ -91,7 +96,7 @@ $fnameErr = $lnameErr = $titleErr = $companyErr = $emailErr = $linkedinErr = $ho
 					<label class="input-group-text" for="how-met">Options</label>
 				</div>
 				<select class="custom-select" id="how-met" name="how-met">
-					<option selected disabled>Choose how we met</option>
+					<option value="none" selected disabled>Choose how we met</option>
 					<option value="meetup" <?php if ($how_met == 'meetup'){echo 'selected';}?>>Meetup</option>
 					<option value="jobfair" <?php if ($how_met == 'jobfair'){echo 'selected';}?>>Job Fair</option>
 					<option value="class" <?php if ($how_met == 'class'){echo 'selected';}?>>Class</option>
@@ -99,10 +104,11 @@ $fnameErr = $lnameErr = $titleErr = $companyErr = $emailErr = $linkedinErr = $ho
 					<option value="nomeet" <?php if ($how_met == 'nomeet'){echo 'selected';}?>>We haven't met</option>
 				</select>
 			</div>
-			<span class="text-danger" id="err-met"><?php echo $how_metErr;?></span>
+			<span class="text-danger d-none" id="err-met">*Please enter a valid way that we met.</span>
+			<span class="text-danger" id="err-met-php"><?php echo $how_metErr;?></span>
 		</div>
 		<div class="col-md-6">
-			<div class="input-group mb-3" id="display-other">
+			<div class="input-group mb-3 d-none" id="display-other">
 				<div class="input-group-prepend">
 					<label for="specifyOther">
 						<span class="input-group-text" id="basic-addon1">Specify other:</span>
@@ -132,7 +138,7 @@ $fnameErr = $lnameErr = $titleErr = $companyErr = $emailErr = $linkedinErr = $ho
 				($mailingList){echo 'checked';}?>>
 				<label class="custom-control-label" for="mailingList">Please add me to your mailing list</label>
 			</div>
-			<div class="form-group" id="email-formats">
+			<div class="form-group d-none" id="email-formats">
 				<span class="emailFormat">Please choose an email format:</span>
 				<br>
 				<div class="custom-control custom-radio custom-control-inline">
@@ -154,4 +160,4 @@ $fnameErr = $lnameErr = $titleErr = $companyErr = $emailErr = $linkedinErr = $ho
 </form>
 
 <?php include ('includes/footer.html'); ?>
-<!--<script src="scripts/guestbook-validation.js"></script>-->
+<script src="scripts/guestbook-validation.js"></script>

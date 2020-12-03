@@ -66,11 +66,14 @@ function validate() {
 
 	// validate email
 	let email = document.getElementById("email").value;
+	let needEmail = document.getElementById("mailingList");
 	let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	if (email === "") {
+	if (email === "" && needEmail.checked) {
 		let error = document.getElementById("err-email-empty");
 		error.classList.remove("d-none");
 		isValid = false;
+	} else if (email == "") {
+		// need == so the user can leave empty email, === gives invalid format error?
 	} else if (!email.match(emailRegex)) {
 		let error = document.getElementById("err-email-wrong");
 		error.classList.remove("d-none");
@@ -79,8 +82,9 @@ function validate() {
 
 	// validate LinkedIn
 	let linkedin = document.getElementById("linkedin").value;
+	let linkedinRegex = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
 	// I had to hardcode the second slice for .com because if they use a valid LinkedIn address it wouldn't end in .com
-	if (linkedin !== "" && (linkedin.slice(0,5) !== 'https' || linkedin.slice(20, 24) !== '.com')) {
+	if (linkedin !== "" && (linkedin.match(linkedinRegex))) {
 		let error = document.getElementById("err-linkedin");
 		error.classList.remove("d-none");
 		isValid = false;
