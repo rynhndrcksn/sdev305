@@ -147,7 +147,7 @@ $fnameErr = $lnameErr = $titleErr = $companyErr = $emailErr = $linkedinErr = $ho
 				</div>
 			</div>
 			<span class="text-danger d-none" id="err-email-format">*Please select an email format.</span>
-			<span class="text-danger" id="err-email-format"><?php echo $mailingTypeErr;?></span>
+			<span class="text-danger" id="err-email-format-php"><?php echo $mailingTypeErr;?></span>
 		</div>
 	</div>
 	<button class="btn btn-primary" type="submit" name="submit">Submit form</button>

@@ -163,5 +163,3 @@ include ('includes/header.html');
 
 <!-- FOOTER -->
 <?php include ('includes/footer.html');?>
-<script src="scripts/toggler.js"></script>
-<script src="scripts/contact-validation.js"></script>
